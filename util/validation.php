@@ -10,7 +10,7 @@ class UserRegisterValidation {
     /**
      * @var array エラーの文言
      */
-    private $errors;
+    private $errors = [];
 
     /**
      * @var array リクエストデータ
@@ -39,7 +39,7 @@ class UserRegisterValidation {
       }
 
       // パスワードと再入力のパスワードが一緒かどうか
-      if($requestData['pass'] === $requestData['rePass']){
+      if($requestData['pass'] !== $requestData['rePass']){
           $this->setError('rePass', 'passWordが一致しておりません');
       }
 
@@ -49,7 +49,7 @@ class UserRegisterValidation {
       }
 
       // パスワードが6文字以上か
-      if (count($requestData['pass']) > 5) {
+      if (strlen($requestData['pass']) < 5) {
           $this->setError('pass','passwordは6文字以上です');
       }
     }
