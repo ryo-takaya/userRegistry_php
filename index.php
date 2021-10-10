@@ -15,7 +15,7 @@ $displayErrors = function(array $errorMsg){
 
 if(!($_SERVER["REQUEST_METHOD"]=== 'GET')){
 
-  $validator = new UserRegisterValidation($_POST);
+  $validator = new UserRegisterValidation($_POST, SettingDb::connectDb());
   $validator->validate();
   if($validator->isError()){
       $errors = $validator->getErrors();

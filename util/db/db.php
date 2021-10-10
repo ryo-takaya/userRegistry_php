@@ -12,7 +12,7 @@ class SettingDb {
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                 PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true
             ];
-            return new PDO('mysql:dbname=uers;host=localhost;charset=utf8','root','root',$options);
+            return new PDO('mysql:dbname=users;host=localhost;charset=utf8','root','root',$options);
         } catch(PDOException $exception){
             throw new RUNtimeException('dbの接続に失敗しました');
         }
