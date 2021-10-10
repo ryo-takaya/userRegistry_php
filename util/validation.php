@@ -44,7 +44,7 @@ class UserRegisterValidation {
       }
 
       // パスワードが半角英数字か
-      if (preg_match("/^[0-9a-zA-Z]*$/", $requestData['pass'])) {
+      if (!preg_match("/^[0-9a-zA-Z]*$/", $requestData['pass'])) {
         $this->setError('pass', 'パスワードが半角英数字じゃありません');
       }
 
