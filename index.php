@@ -59,6 +59,5 @@ if(!($_SERVER["REQUEST_METHOD"]=== 'GET')){
     <input name="rePass" type="password" placeholder="パスワード再入力">
     <input type="submit" value="送信">
 </form>
-<a href="mypage.php">マイページへ</a>
 </body>
 </html>
