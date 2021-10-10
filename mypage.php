@@ -5,7 +5,7 @@
     <title>登録画面</title>
 </head>
 <body>
-<h1>ユーザーページ</h1>
+<h1>マイページ</h1>
 <section>
     <p>
         あなたのemailは####
