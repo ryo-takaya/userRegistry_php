@@ -1,3 +1,15 @@
+<?php
+declare(strict_types=1);
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
+session_start();
+
+if(is_null($_SESSION['login'])){
+    header('Location:login.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
