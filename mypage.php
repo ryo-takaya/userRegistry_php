@@ -7,7 +7,6 @@ session_start();
 if(is_null($_SESSION['login'])){
     header('Location:login.php');
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +19,7 @@ if(is_null($_SESSION['login'])){
 <h1>マイページ</h1>
 <section>
     <p>
-        あなたのemailは####
+        あなたのemailは<?= $_SESSION['email'] ?>
     </p>
     <p>
         あなたの名前は@@@
