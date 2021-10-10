@@ -20,10 +20,11 @@ if(!($_SERVER["REQUEST_METHOD"]=== 'GET')){
   if($validator->isError()){
       $errors = $validator->getErrors();
   }else{
+      $db = SettingDb::connectDb();
       try{
-          $db = SettingDb::connectDb();
           $stmt = $db->prepare('INSERT INTO users (email, pass, created_at) VALUES (:email, :pass, :created_at)');
-          $stmt->execute([':email' => $_POST['email'], ':pass' => $_POST['pass'], ':created_at' => date('Y-m-d H:i:s')]);
+          $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+          $stmt->execute([':email' => $_POST['email'], ':pass' => $pass, ':created_at' => date('Y-m-d H:i:s')]);
           header('Location:mypage.php');
       }catch(PDOException $err){
           $msg = $err->getMessage();
